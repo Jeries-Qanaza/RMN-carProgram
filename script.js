@@ -20,6 +20,7 @@ function startTime()
   }
   else
   {  
+    document.getElementById('placeInp').style.background = 'linear-gradient(to right, white, lightblue)';
     document.getElementById('startTimeButton').style.display = 'none';
     document.getElementById('stopTimeButton').style.display = 'inline';
 
