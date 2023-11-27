@@ -12,49 +12,51 @@ let isCarOccupied = false;
 
 function startTime() 
 {
-    isCarOccupied = true;
+  isCarOccupied = true;
+
+  if (document.getElementById("placeInp").value == "") {
+    alert("Place data error!");
+    document.getElementById("placeInp").style.background = "red";
+  }
+  else
+  {  
     document.getElementById('startTimeButton').style.display = 'none';
     document.getElementById('stopTimeButton').style.display = 'inline';
-    console.log("I'm in start");
 
-    startTime= date.toLocaleTimeString()
-    console.log(startTime);
+    startTime = date.toLocaleTimeString()
   
-  // Display time difference
-  displayTimeDifference();
+    // Display time difference
+    displayTimeDifference();
   
-  // Update live time count
-  updateLiveTimeCount();
+    // Update live time count
+    updateLiveTimeCount();
 
- 
+  }
 }
 
 function stopTime() 
 {
 
-    isCarOccupied = false;
+  isCarOccupied = false;
 
-    // Update UI to hide the form and show the start button
-    document.getElementById('done').style.display = 'block';
-    document.getElementById('startTimeButton').style.display = 'none';
-    document.getElementById('stopTimeButton').style.display = 'none';
-    document.getElementById('submitBtn').style.display = 'block';
+  var dateElement = document.querySelector('#done #date');
+  var dayElement = document.querySelector('#done #day');
+  var startTimeElement = document.querySelector('#done #startTime');
+  var endTimeElement = document.querySelector('#done #endTime');
+  var doneNameElement = document.querySelector('#done #name');
+  var placeElement = document.querySelector('#done #place');
+  date = new Date();
+  let sendDate = dateElement.textContent = formattedDate;
+  let sendDay = dayElement.textContent = currentDay;
+  let sendStartTime = startTimeElement.textContent = startTime;
+  let sendEndTime = endTimeElement.textContent = date.toLocaleTimeString();
+  let sendName = doneNameElement.textContent = document.getElementById('car').value;
+  let sendPlace = placeElement.textContent = document.getElementById("placeInp").value;
 
-
-    var doneNameElement = document.querySelector('#done #name');
-    var dayElement = document.querySelector('#done #day');
-    var dateElement = document.querySelector('#done #date');
-    var placeElement = document.querySelector('#done #place');
-    var startTimeElement = document.querySelector('#done #startTime');
-    var endTimeElement = document.querySelector('#done #endTime');
-
-    let sendName = doneNameElement.textContent = document.getElementById('car').value;
-    let sendDay = dayElement.textContent = currentDay;
-    let sendDate = dateElement.textContent = formattedDate;
-    let sendPlace = placeElement.textContent = document.getElementById("placeInp").value;
-    let sendStartTime = startTimeElement.textContent = startTime;
-    date = new Date();
-    let sendEndTime = endTimeElement.textContent = date.toLocaleTimeString();
+  document.getElementById('done').style.display = 'block';
+  document.getElementById('startTimeButton').style.display = 'none';
+  document.getElementById('stopTimeButton').style.display = 'none';
+  document.getElementById('submitBtn').style.display = 'block';
 
   fillForm(sendName,sendDay,sendDate,sendPlace,sendStartTime,sendEndTime);
 }

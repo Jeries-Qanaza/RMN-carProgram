@@ -28,7 +28,7 @@
       padding: 10px;
     }
 
-    #startTimeButton, #stopTimeButton, #submitBtn {
+    #startTimeButton, #stopTimeButton{
       width: 80%;
       max-width: 200px;
       height: 50px;
@@ -45,6 +45,10 @@
 
     #submitBtn {
       background-color: rgb(28, 94, 175);
+      text-align: center;
+      padding: 20px;
+      cursor: pointer;
+      border-radius: 30px;
     }
 
     #timeDiff {
@@ -69,3 +73,4 @@
     .hideInp {
       display: none;
     }
+
